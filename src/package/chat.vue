@@ -54,6 +54,7 @@ const svgStyle = computed(() => ({
 
 <template>
   <button
+    class="-_chat"
     v-if="!isOpen"
     :style="styleProps"
     @mouseover="isHovered = true"
@@ -79,13 +80,42 @@ const svgStyle = computed(() => ({
     <div class="--box-header">
       <div class="--box-header-bg"></div>
       <div class="--box-header-filter"></div>
+      <div class="--flex">
+        <div class="--flex-header">
+          <div class="--logo"></div>
+          <button @click="isOpen = !isOpen" class="--close">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M18 6L6 18"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M6 6L18 18"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
     <div class="--box-body"></div>
   </div>
 </template>
 
 <style>
-button {
+.-_chat {
   position: fixed;
   right: 20px;
   bottom: 20px;
@@ -97,7 +127,7 @@ button {
   transition: background 0.3s ease-in-out;
 }
 
-button:hover {
+.-_chat:hover {
   background: #5946f2;
 }
 .--box {
@@ -110,11 +140,13 @@ button:hover {
   align-items: flex-start;
   box-shadow: 0px 30px 60px 0px rgba(70, 41, 242, 0.14);
   background: #fff;
+  border-radius: 8px 8px 0px 0px;
 }
 .--box-header {
   width: 450px;
   height: 239px;
   position: relative;
+  padding: 10px;
 }
 .--box-header-bg {
   position: absolute;
@@ -132,22 +164,56 @@ button:hover {
     ),
     #d9d9d9;
   border-radius: 8px 8px 0px 0px;
-  width: 450px;
-  height: 239px;
   flex-shrink: 0;
   backdrop-filter: blur(25px);
 }
 .--box-header-filter {
-  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
   border-radius: 8px 8px 0px 0px;
-  padding: 10px;
   background: rgba(255, 255, 255, 0.01);
   backdrop-filter: blur(25px);
+}
+.--flex {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+}
+.--flex-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.--logo {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  background: #000;
+  border-radius: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.--close {
+  border-radius: 100%;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.2);
 }
 .--box-body {
   display: flex;

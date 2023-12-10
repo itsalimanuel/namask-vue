@@ -1,3 +1,5 @@
+
+
 # Namask-Vue
 
 Namask-Vue is an AI-powered customer service tool designed for seamless integration with Vue.js applications. This lightweight package provides personalized, lightning-fast assistance 24/7, offering your users a next-gen support solution. With Namask-Vue, you not only enhance user experience but also gain valuable insights into user interactions.
@@ -21,15 +23,6 @@ or
 ```bash
 yarn add namask-vue
 ```
-
-## Features
-
-- AI-powered customer service for Vue.js applications.
-- Lightning-fast and personalized assistance.
-- 24/7 support solution.
-- Gain valuable insights into user interactions.
-- Lightweight package.
-- Beta version using TypeScript and Vite.
 
 ## Usage
 
@@ -66,6 +59,13 @@ yarn add namask-vue
    ```
 
 4. Customize and configure Namask-Vue as needed based on the provided documentation.
+
+5. In your `main.ts` file, import the Namask-Vue styles:
+
+   ```typescript
+   // Import Namask-Vue styles
+   import '../node_modules/namask-vue/dist/style.css';
+   ```
 
 ## Important Notes
 

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Chat from "namask-vue";
 
+
 </script>
 
 <template>

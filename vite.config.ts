@@ -1,6 +1,16 @@
-import { defineConfig } from "vite";
+import { defineConfig, Plugin } from "vite";
 import path from "path";
 import vue from "@vitejs/plugin-vue";
+
+const injectCssPlugin: Plugin = {
+  name: 'inject-css',
+  transformIndexHtml(html) {
+    return html.replace(
+      '</head>',
+      '<link rel="stylesheet" href="namask-vue/dist/style.css"></head>'
+    );
+  },
+};
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,14 +21,14 @@ export default defineConfig({
       fileName: (format) => `chat.${format}.ts`,
     },
     rollupOptions: {
-      external: ['vue'],
+      external: ["vue", /^namask-vue/],
       output: {
         globals: {
           vue: "Vue",
-        }
-      }
-    }
+        },
+      },
+    },
   },
 
-  plugins: [vue()],
+  plugins: [vue(), injectCssPlugin],
 });

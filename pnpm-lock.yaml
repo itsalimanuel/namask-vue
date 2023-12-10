@@ -9,8 +9,8 @@ dependencies:
     specifier: ^10.7.0
     version: 10.7.0(vue@3.3.8)
   namask-vue:
-    specifier: 0.0.1-beta
-    version: 0.0.1-beta(typescript@5.2.2)
+    specifier: 0.0.6-beta
+    version: 0.0.6-beta(typescript@5.2.2)
   vue:
     specifier: ^3.3.8
     version: 3.3.8(typescript@5.2.2)
@@ -637,6 +637,28 @@ packages:
     resolution: {integrity: sha512-ZoViGoDf9TazXQAZsL6JvWbnqyrP2KsStKA0Xslp1Z4Qww9o1KmfA5j5j3ax5I5g7io/O5O68gw4CjpFJvNIEQ==}
     dependencies:
       '@vueuse/core': 10.7.0(vue@3.3.8)
+      vue: 3.3.8(typescript@5.2.2)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - typescript
+    dev: false
+
+  /namask-vue@0.0.3-beta(typescript@5.2.2):
+    resolution: {integrity: sha512-5fh/Hl8zx36p7PxvisyuASYIQc4ByDONwMZZ7drRf9PFhOk4ZijJpcR6bkuNYMNIF/Prk+gnJpJAgxyQkRu36g==}
+    dependencies:
+      '@vueuse/core': 10.7.0(vue@3.3.8)
+      namask-vue: 0.0.1-beta(typescript@5.2.2)
+      vue: 3.3.8(typescript@5.2.2)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - typescript
+    dev: false
+
+  /namask-vue@0.0.6-beta(typescript@5.2.2):
+    resolution: {integrity: sha512-n3qDH1uVtuhpbnca4Bvop72OhiziW/A4xEI7Xcsb1zm6q7RjSoJz1tLcYHlJUA7tTZqoesXcsxZmeMYMDj+4Iw==}
+    dependencies:
+      '@vueuse/core': 10.7.0(vue@3.3.8)
+      namask-vue: 0.0.3-beta(typescript@5.2.2)
       vue: 3.3.8(typescript@5.2.2)
     transitivePeerDependencies:
       - '@vue/composition-api'

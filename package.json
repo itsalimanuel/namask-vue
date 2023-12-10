@@ -1,10 +1,22 @@
 {
-  "name": "namask-vue",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "@namask/vue",
+  "private": false,
+  "version": "0.0.1-beta",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/chat.umd.js",
+  "module": "./dist/chat.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/chat.es.js",
+      "require": "./dist/chat.umd.js"
+    }
+  },
+  "types": "./dist/types/index.d.ts",
   "scripts": {
     "dev": "vite",
+    "build:lb": "vite build && vue-tsc --emitDeclarationOnly && move dist/src dist/types",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
@@ -13,9 +25,11 @@
     "vue": "^3.3.8"
   },
   "devDependencies": {
+    "@types/vue": "^2.0.0",
     "@vitejs/plugin-vue": "^4.5.0",
     "typescript": "^5.2.2",
     "vite": "^5.0.0",
     "vue-tsc": "^1.8.22"
-  }
+  },
+  "author": "Ali Khalouf"
 }

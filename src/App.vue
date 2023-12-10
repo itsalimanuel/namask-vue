@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Chat } from "./package/index";
+import Chat from "./package/index";
 </script>
 
 <template>

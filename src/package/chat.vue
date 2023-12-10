@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { onClickOutside } from "@vueuse/core";
-import logo from '../../public/black-logo.svg'
+import logo from "../../public/black-logo.svg";
 import CloseIcon from "../components/closeIcon.vue";
 const isHovered = ref(false);
 const isOpen = ref(false);
@@ -31,10 +31,13 @@ const props = defineProps({
   },
   icon: {
     type: String,
-    default: logo
-  }
+    default: logo,
+  },
 });
-onClickOutside(boxRef, () => (isOpen.value = false));
+onClickOutside(
+  boxRef,
+  () => ((isOpen.value = false), (isHovered.value = false))
+);
 
 const hexToRgba = (hex: string, alpha: number) => {
   const bigint = parseInt(hex.slice(1), 16);
@@ -95,20 +98,46 @@ const svgStyle = computed(() => ({
         <div class="--flex">
           <div class="--flex-header">
             <div class="--logo">
-              <img :src="props.icon" alt="">
+              <img :src="props.icon" alt="" />
             </div>
             <button @click="isOpen = !isOpen" class="--close">
-             <CloseIcon cn="is-close-icon" />
+              <CloseIcon cn="is-close-icon" />
             </button>
+          </div>
+          <div class="--flex-content">
+            <h2>Namask</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Laboriosam quod sed beatae hic deserunt nemo laudantium odio
+              molestias soluta eaque?
+            </p>
           </div>
         </div>
       </div>
-      <div class="--box-body"></div>
+      <div class="--box-body">
+        <div class="--client">
+          <p class="--client-content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam,
+            quisquam!
+          </p>
+        </div>
+        <div class="--bot">
+          <div class="--bot-icon"></div>
+          <div class="--bot-answer">
+            <h4 class="--bot-name">Namask bot</h4>
+            <div class="--bot-content">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel,
+                unde.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
-
-<style>
+<style scoped>
 .-_chat {
   position: fixed;
   right: 20px;
@@ -124,24 +153,27 @@ const svgStyle = computed(() => ({
 .-_chat:hover {
   background: #5946f2;
 }
+
 .--box {
   position: fixed;
+  width: 450px;
   right: 20px;
   bottom: 20px;
   display: inline-flex;
-  border-radius: 8px 8px 0px 0px;
+  border-radius: 8px 8px 0 0;
   flex-direction: column;
   align-items: flex-start;
-  box-shadow: 0px 30px 60px 0px rgba(70, 41, 242, 0.14);
+  box-shadow: 0 30px 60px 0 rgba(70, 41, 242, 0.14);
   background: #fff;
-  border-radius: 8px 8px 0px 0px;
+  border-radius: 8px 8px 0 0;
 }
+
 .--box-header {
-  width: 450px;
   height: 239px;
   position: relative;
   padding: 10px;
 }
+
 .--box-header-bg {
   position: absolute;
   top: 0;
@@ -157,10 +189,11 @@ const svgStyle = computed(() => ({
       #f3b960 360deg
     ),
     #d9d9d9;
-  border-radius: 8px 8px 0px 0px;
+  border-radius: 8px 8px 0 0;
   flex-shrink: 0;
   backdrop-filter: blur(25px);
 }
+
 .--box-header-filter {
   position: absolute;
   top: 0;
@@ -170,10 +203,11 @@ const svgStyle = computed(() => ({
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
-  border-radius: 8px 8px 0px 0px;
+  border-radius: 8px 8px 0 0;
   background: rgba(255, 255, 255, 0.01);
   backdrop-filter: blur(25px);
 }
+
 .--flex {
   position: relative;
   z-index: 2;
@@ -183,11 +217,31 @@ const svgStyle = computed(() => ({
   padding: 20px;
   gap: 10px;
 }
+
 .--flex-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 }
+
+.--flex-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.--flex-content h2 {
+  font-size: 20px;
+  margin: 4px 0;
+  line-height: 120%;
+  font-weight: bold;
+}
+
+.--flex-content p {
+  margin: 4px 0;
+  text-align: left;
+}
+
 .--logo {
   display: flex;
   width: 60px;
@@ -199,10 +253,12 @@ const svgStyle = computed(() => ({
   align-items: center;
   gap: 8px;
 }
+
 .--logo img {
   width: 30px;
   height: 30px;
 }
+
 .--close {
   border-radius: 100%;
   display: flex;
@@ -213,6 +269,7 @@ const svgStyle = computed(() => ({
   gap: 8px;
   background: rgba(255, 255, 255, 0.2);
 }
+
 .--box-body {
   display: flex;
   padding: 30px;
@@ -222,11 +279,120 @@ const svgStyle = computed(() => ({
   align-self: stretch;
   background: #fff;
   height: 400px;
+  flex: 1 1 auto;
+  overflow-y: auto;
 }
+
 .is-close-icon {
   width: 24px;
   height: 24px;
   min-width: 24px;
   min-height: 24px;
+}
+
+.--client {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  margin-left: auto;
+  max-width: 80%;
+  width: 100%;
+  gap: 5px;
+}
+.--client-content {
+  background-color: #4629f2;
+  padding: 10px 15px;
+  margin: 0;
+  border-radius: 10px 0px 10px 10px;
+  color: #fff;
+  width: 100%;
+  text-align: left;
+}
+
+.--bot {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+}
+.--bot-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background: #000;
+}
+.--bot-answer {
+  display: flex;
+  max-width: 80%;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+.--bot-name {
+  color: #0d082c;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.--bot-content {
+  display: flex;
+  padding: 10px 15px;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 0px 10px 10px 10px;
+  background: #f1f7ff;
+}
+.--bot-content p {
+  color: #0d082c;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  flex: 1 0 0;
+  text-align: left;
+}
+
+/* Vendor Prefixes */
+.--box-header-bg {
+  -webkit-backdrop-filter: blur(25px);
+  -moz-backdrop-filter: blur(25px);
+  -ms-backdrop-filter: blur(25px);
+  backdrop-filter: blur(25px);
+}
+
+/* Gradient Fallback */
+.--box-header-bg {
+  background: -webkit-conic-gradient(
+      from 202deg at 81.78% 23.22%,
+      #4629f2 0deg,
+      #13c6ff 125.62500357627869deg,
+      #b94dfb 215.62499284744263deg,
+      #ff53ee 294.3749928474426deg,
+      #f3b960 360deg
+    ),
+    conic-gradient(
+      from 202deg at 81.78% 23.22%,
+      #4629f2 0deg,
+      #13c6ff 125.62500357627869deg,
+      #b94dfb 215.62499284744263deg,
+      #ff53ee 294.3749928474426deg,
+      #f3b960 360deg
+    ),
+    linear-gradient(#d9d9d9, #d9d9d9);
+}
+p {
+  margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
 }
 </style>

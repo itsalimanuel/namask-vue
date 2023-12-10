@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Chat from "../dist/chat.es.ts";
-import '../dist/style.css'
+import Chat from "namask-vue";
+
 </script>
 
 <template>

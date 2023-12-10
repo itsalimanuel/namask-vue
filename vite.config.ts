@@ -7,7 +7,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/package/index.ts"),
-      name: "namask-chat",
+      name: "namask-vue",
       fileName: (format) => `chat.${format}.ts`,
     },
     rollupOptions: {

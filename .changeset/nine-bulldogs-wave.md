@@ -1,0 +1,5 @@
+---
+"namask-vue": patch
+---
+
+chore

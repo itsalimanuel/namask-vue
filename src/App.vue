@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import Chat from "./package/index";
+import Chat from "../dist/chat.es.ts";
+import '../dist/style.css'
 </script>
 
 <template>

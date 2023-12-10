@@ -1,18 +1,84 @@
-# Vue 3 + TypeScript + Vite
+# Namask-Vue
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Namask-Vue is an AI-powered customer service tool designed for seamless integration with Vue.js applications. This lightweight package provides personalized, lightning-fast assistance 24/7, offering your users a next-gen support solution. With Namask-Vue, you not only enhance user experience but also gain valuable insights into user interactions.
 
-## Recommended IDE Setup
+## Installation
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+You can install Namask-Vue using your preferred package manager:
 
-## Type Support For `.vue` Imports in TS
+```bash
+npm install namask-vue
+```
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+or
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+```bash
+pnpm add namask-vue
+```
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+or
+
+```bash
+yarn add namask-vue
+```
+
+## Features
+
+- AI-powered customer service for Vue.js applications.
+- Lightning-fast and personalized assistance.
+- 24/7 support solution.
+- Gain valuable insights into user interactions.
+- Lightweight package.
+- Beta version using TypeScript and Vite.
+
+## Usage
+
+1. Install Namask-Vue in your Vue.js project.
+
+   ```bash
+   npm install namask-vue
+   ```
+
+2. Import Namask-Vue in your Vue component.
+
+   ```javascript
+   // Import the component
+   import Chat from 'namask-vue';
+
+   // Use the component in your template
+   export default {
+     components: {
+       Chat,
+     },
+     // Your component code...
+   };
+   ```
+
+3. Add the `Chat` component in your template.
+
+   ```html
+   <template>
+     <div>
+       <!-- Your existing Vue.js template code -->
+       <Chat />
+     </div>
+   </template>
+   ```
+
+4. Customize and configure Namask-Vue as needed based on the provided documentation.
+
+## Important Notes
+
+- Namask-Vue is currently in beta.
+- Requires TypeScript and Vite for compatibility.
+
+## Contributing
+
+If you encounter any issues or have suggestions for improvement, feel free to [open an issue](https://github.com/itsalimanuel/namask-vue/issues) or [contribute to the project](https://github.com/itsalimanuel/namask-vue.git).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+---
+

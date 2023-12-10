@@ -1,7 +1,7 @@
 {
   "name": "namask-vue",
   "private": false,
-  "version": "0.0.1-beta",
+  "version": "0.0.2-beta",
   "files": [
     "dist"
   ],
@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^10.7.0",
+    "namask-vue": "0.0.1-beta",
     "vue": "^3.3.8"
   },
   "devDependencies": {

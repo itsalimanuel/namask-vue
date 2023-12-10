@@ -8,6 +8,9 @@ dependencies:
   '@vueuse/core':
     specifier: ^10.7.0
     version: 10.7.0(vue@3.3.8)
+  namask-vue:
+    specifier: 0.0.1-beta
+    version: 0.0.1-beta(typescript@5.2.2)
   vue:
     specifier: ^3.3.8
     version: 3.3.8(typescript@5.2.2)
@@ -629,6 +632,16 @@ packages:
   /muggle-string@0.3.1:
     resolution: {integrity: sha512-ckmWDJjphvd/FvZawgygcUeQCxzvohjFO5RxTjj4eq8kw359gFF3E1brjfI+viLMxss5JrHTDRHZvu2/tuy0Qg==}
     dev: true
+
+  /namask-vue@0.0.1-beta(typescript@5.2.2):
+    resolution: {integrity: sha512-ZoViGoDf9TazXQAZsL6JvWbnqyrP2KsStKA0Xslp1Z4Qww9o1KmfA5j5j3ax5I5g7io/O5O68gw4CjpFJvNIEQ==}
+    dependencies:
+      '@vueuse/core': 10.7.0(vue@3.3.8)
+      vue: 3.3.8(typescript@5.2.2)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - typescript
+    dev: false
 
   /nanoid@3.3.7:
     resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}

@@ -33,11 +33,24 @@ const props = defineProps({
     type: String,
     default: logo,
   },
+  name: {
+    type: String,
+    default: "Namask",
+  },
+  description: {
+    type: String,
+    default:
+      "Unveiling our AI Customer Service Tool, your next-gen support solution.",
+  },
 });
 onClickOutside(
   boxRef,
   () => ((isOpen.value = false), (isHovered.value = false))
 );
+
+const closeChat = () => {
+  (isOpen.value = false), (isHovered.value = false);
+};
 
 const hexToRgba = (hex: string, alpha: number) => {
   const bigint = parseInt(hex.slice(1), 16);
@@ -91,7 +104,7 @@ const svgStyle = computed(() => ({
         />
       </svg>
     </button>
-    <div class="--box" v-else ref="boxRef">
+    <div class="--box" v-else ref="boxRef" :class="{ open: isOpen }">
       <div class="--box-header">
         <div class="--box-header-bg"></div>
         <div class="--box-header-filter"></div>
@@ -100,37 +113,61 @@ const svgStyle = computed(() => ({
             <div class="--logo">
               <img :src="props.icon" alt="" />
             </div>
-            <button @click="isOpen = !isOpen" class="--close">
+            <button @click="closeChat" class="--close">
               <CloseIcon cn="is-close-icon" />
             </button>
           </div>
           <div class="--flex-content">
-            <h2>Namask</h2>
+            <h2>{{ props.name }}</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Laboriosam quod sed beatae hic deserunt nemo laudantium odio
-              molestias soluta eaque?
+              {{ props.description }}
             </p>
           </div>
         </div>
       </div>
-      <div class="--box-body">
-        <div class="--client">
-          <p class="--client-content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam,
-            quisquam!
-          </p>
-        </div>
-        <div class="--bot">
-          <div class="--bot-icon"></div>
-          <div class="--bot-answer">
-            <h4 class="--bot-name">Namask bot</h4>
-            <div class="--bot-content">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel,
-                unde.
-              </p>
+      <div class="--msg">
+        <div class="--box-body">
+          <div class="--client">
+            <p class="--client-content">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam,
+              quisquam!
+            </p>
+          </div>
+          <div class="--bot">
+            <div class="--bot-icon"></div>
+            <div class="--bot-answer">
+              <h4 class="--bot-name">{{ props.name }} bot</h4>
+              <div class="--bot-content">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel,
+                  unde.
+                </p>
+              </div>
             </div>
+          </div>
+        </div>
+        <div class="--footer">
+          <textarea
+            name=""
+            class="--footer-input"
+            placeholder="Your Question"
+          />
+          <div class="--footer-send">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M9 18L15 12L9 6"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
           </div>
         </div>
       </div>
@@ -157,6 +194,7 @@ const svgStyle = computed(() => ({
 .--box {
   position: fixed;
   width: 450px;
+  max-width: 450px;
   right: 20px;
   bottom: 20px;
   display: inline-flex;
@@ -166,12 +204,22 @@ const svgStyle = computed(() => ({
   box-shadow: 0 30px 60px 0 rgba(70, 41, 242, 0.14);
   background: #fff;
   border-radius: 8px 8px 0 0;
+  opacity: 0;
+  transform-origin: right bottom;
+  transform: scale(0.8);
+  transition:
+    opacity 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+.--box.open {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .--box-header {
   height: 239px;
   position: relative;
-  padding: 10px;
+  width: 100%;
 }
 
 .--box-header-bg {
@@ -289,7 +337,9 @@ const svgStyle = computed(() => ({
   min-width: 24px;
   min-height: 24px;
 }
-
+.--msg {
+  flex: 1 1 auto;
+}
 .--client {
   display: flex;
   flex-direction: column;
@@ -354,7 +404,42 @@ const svgStyle = computed(() => ({
   flex: 1 0 0;
   text-align: left;
 }
-
+.--footer {
+  display: flex;
+  padding: 20px 30px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 0px 0px 8px 8px;
+  background: #fff;
+  gap: 10px;
+  border-top: 1px solid #ddd;
+}
+.--footer-input {
+  width: 100%;
+  padding: 10px;
+  height: 30px;
+  resize: none;
+  outline: none;
+  border: none;
+  padding: 5px;
+  background: transparent;
+  color: #000;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+.--footer-send {
+  cursor: pointer;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 100%;
+  background: #4629f2;
+}
 /* Vendor Prefixes */
 .--box-header-bg {
   -webkit-backdrop-filter: blur(25px);

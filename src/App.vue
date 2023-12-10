@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Chat from "./package/chat.vue";
+import { Chat } from "./package/index";
 </script>
 
 <template>
@@ -7,21 +7,8 @@ import Chat from "./package/chat.vue";
     <Chat
       :width="80"
       :height="80"
+      name="Namask"
+      description="Unveiling our AI Customer Service Tool, your next-gen support solution."
     />
   </div>
 </template>
-
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883);
-}
-</style>

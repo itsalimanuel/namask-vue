@@ -9,6 +9,10 @@ const isOpen = ref(false);
 const boxRef = ref<HTMLElement | null>(null);
 
 const props = defineProps({
+  key: {
+    type: String,
+    required: true,
+  },
   width: {
     type: Number,
     default: 80,

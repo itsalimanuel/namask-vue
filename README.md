@@ -67,6 +67,19 @@ yarn add namask-vue
    import '../node_modules/namask-vue/dist/style.css';
    ```
 
+### Namask Component Attributes
+
+| Name        | Description                                                                | Type                                       | Default                                                                 |
+| ----------- | -------------------------------------------------------------------------- | ------------------------------------------ | ----------------------------------------------------------------------- |
+| width       | Width of the Namask component                                              | ^[number]                                  | 80                                                                      |
+| height      | Height of the Namask component                                             | ^[number]                                  | 80                                                                      |
+| background  | Background color of the Namask component                                  | ^[string]                                  | "#4629f2"                                                               |
+| svgHeight   | Height of the SVG icon within the Namask component                        | ^[number]                                  | 24                                                                      |
+| svgWidth    | Width of the SVG icon within the Namask component                         | ^[number]                                  | 24                                                                      |
+| icon        | Icon to be displayed in the Namask component                               | ^[string] / ^[Component]                   | logo                                                                    |
+| name        | Name to be displayed in the Namask component                               | ^[string]                                  | "Namask"                                                                |
+| description | Description text to be displayed in the Namask component                   | ^[string]                                  | "Unveiling our AI Customer Service Tool, your next-gen support solution." |
+
 ## Important Notes
 
 - Namask-Vue is currently in beta.

@@ -36,24 +36,24 @@ yarn add namask-vue
 
    ```javascript
    // Import the component
-   import Chat from 'namask-vue';
+   import NamaskChat from 'namask-vue';
 
    // Use the component in your template
    export default {
      components: {
-       Chat,
+       NamaskChat,
      },
      // Your component code...
    };
    ```
 
-3. Add the `Chat` component in your template.
+3. Add the `NamaskChat` component in your template.
 
    ```html
    <template>
      <div>
        <!-- Your existing Vue.js template code -->
-       <Chat />
+       <NamaskChat />
      </div>
    </template>
    ```

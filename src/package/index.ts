@@ -1,3 +1,3 @@
-import Chat from "./chat.vue";
+import NamaskChat from "./namask-chat.vue";
 
-export default Chat;
+export default NamaskChat;
